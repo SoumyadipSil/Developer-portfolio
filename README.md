@@ -4,21 +4,13 @@ Welcome to my **`⛓️‍💥 modern`, ` 🏃‍♂️ animated` `🫠 portfoli
 
 <br>
 
-## 📸 **Screenshot**
-<img width="1649" height="881" alt="Screenshot 2025-08-04 192053" src="https://github.com/user-attachments/assets/4908a7d4-2251-4e89-9367-b9529b057f4c" />
-
-<br>
-<Br>
-
 > [!NOTE]  
 > This portfolio is a living project—expect updates and new features regularly.
 
 
 <br>
   
-## 🙋‍♂️ **About This Portfolio**
-
-The **`project`** is designed to highlight my journey as a **`developer`**. Explore interactive sections, animated transitions, and a **`kinda responsive`** layout that looks great on any device. All content is hand-crafted—no AI-generated fluff, just real **`projects`** and **`skills`**.
+## 🙋‍♂️ About This Portfolio
 
 <br>
 
@@ -53,20 +45,6 @@ A next-gen, visually appealing portfolio built with [Once UI](https://once-ui.co
 ## 🎥 **Demo**
 
 See the portfolio live: **`Demo`**
-
-<br>
-
-## 🧩 **Design & Customization**
-
-- 🎨 **Tokens:**  
-    - Design tokens (colors, spacing, typography) in `src/resources/once-ui.config.js`
-    - Custom styles in `src/resources/custom.css` and `src/app/global.css`
-
-- 🧱 **Components:**  
-    - Modular components for easy updates and scalability
-
-- 🌗 **Theming:**  
-    - Fully responsive and mobile-first
 
 <br>
 
@@ -120,12 +98,12 @@ npm run dev
 
 <br>
 
-## 👨‍💻 **Author**
+##  **Author**
 
-**Divyanshu Dhruv**  
-- [GitHub](https://github.com/divyanshudhruv)  
-- [Website](https://divyanshudhruv.is-a.dev)  
-- [LinkedIn](https://www.linkedin.com/in/divyanshudhruv/)
+**Soumyadip Sil**  
+- [GitHub]()  
+- [Website]()  
+- [LinkedIn](https://www.linkedin.com/in/)
 
 <br>
 
@@ -142,4 +120,4 @@ See [`LICENSE`](LICENSE) for details.
 
 <br>
 
-_☕ Crafted by me, hehehehe._
+
