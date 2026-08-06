@@ -450,12 +450,12 @@ const cards = [
     href: "https://afterhours-blog.vercel.app/",
   },
   {
-    src: "/letsinvoice.png",
+    src: "/LetsInvoice.png",
     alt: "LetsInvoice project",
     href: "https://letsinvoice-seven.vercel.app/",
   },
   {
-    src: "personal-portfolio.png",
+    src: "simple_portfolio.png",
     alt: "Simple Portfolio project",
     href: "https://personal-portfolio-green-nu-18.vercel.app/#home",
   },
