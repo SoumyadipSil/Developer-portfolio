@@ -445,7 +445,7 @@ const skills = [
 
 const cards = [
   {
-    src: "/afterhours-blog.png",
+    src: "/AfterHours_blog.png",
     alt: "AfterHours blog project",
     href: "https://afterhours-blog.vercel.app/",
   },
