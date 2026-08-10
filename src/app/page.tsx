@@ -1769,12 +1769,6 @@ export default function Home() {
                   period: "2024",
                 },
                 {
-                  logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM9lvt8PkTxyucGQyg-xUMa_3CcGdMtxTqTg&s",
-                  name: "Academy of Skill Developement",
-                  role: "Data Science, AI, Machine-Learning using python(project based) ",
-                  period: "2025",
-                },
-                {
                   logo: "/me.webp",
                   name: "Self Employed ",
                   role: "Full-Stack Developer",
@@ -1786,7 +1780,6 @@ export default function Home() {
                   role: "Software Engineer",
                   period: "2020 - NOW",
                 },
-                
               ].map((exp, idx) => (
                 <Row
                   key={exp.name}
@@ -1794,7 +1787,7 @@ export default function Home() {
                   vertical="center"
                   horizontal="between"
                   style={{
-                    borderBottom: idx !== 4 ? "1px solid #eee" : undefined,
+                    borderBottom: idx !== 2 ? "1px solid #eee" : undefined,
                     paddingBottom: "18px",
                   }}
                 >
