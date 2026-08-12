@@ -1003,6 +1003,38 @@ function FlickeringGridDemo({ color }: { color: string }) {
   );
 }
 
+function TownsquareWidget() {
+  React.useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "module";
+    script.async = true;
+    script.innerHTML = `
+      import { mountTownSquare } from "https://townsquare.cauenapier.com/townsquare.mjs";
+      mountTownSquare(document.getElementById("townsquare-root"), {
+        serverOrigin: "https://townsquare.cauenapier.com",
+        siteKey: "site_4W74JSTN90rZ-ffQ",
+        theme: "host"
+      });
+    `;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  return (
+    <div style={{ width: "100%", height: "100%", minHeight: "450px" }}>
+      <link rel="preconnect" href="https://townsquare.cauenapier.com" crossOrigin="anonymous" />
+      <link rel="stylesheet" href="https://townsquare.cauenapier.com/widget.css" />
+      <link rel="stylesheet" href="https://townsquare.cauenapier.com/api/sites/site_4W74JSTN90rZ-ffQ/style.css" />
+      <div id="townsquare-root" style={{ width: "100%", height: "100%" }}></div>
+    </div>
+  );
+}
+
 export default function Home() {
   const lenis = useLenis((lenis) => {});
 
@@ -1960,6 +1992,126 @@ export default function Home() {
             </Flex>
           </Column>
         </Flex>
+        {/* Socials & Townsquare Section */}
+        <Flex
+          fillWidth
+          fitHeight
+          radius="xl-8"
+          overflow="hidden"
+          direction="column"
+          center
+          paddingY="xl"
+          gap="64"
+          paddingX="l"
+          style={{
+            backgroundColor: colors.background_light,
+            minHeight: "fit-content",
+            marginTop: "16px"
+          }}
+          id="socials"
+        >
+          <Column gap="40" fillWidth maxWidth={95}>
+            <Row vertical="center" horizontal="start" fillWidth>
+              <Text
+                style={{
+                  fontFamily: fraunces.style.fontFamily,
+                  fontSize: "2.5em",
+                  color: colors.text,
+                  fontWeight: "300",
+                  lineHeight: "1.2",
+                  maxWidth: "1000px",
+                }}
+              >
+                Socials
+              </Text>
+            </Row>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "32px",
+                width: "100%",
+                minHeight: "450px"
+              }}
+            >
+              {/* Left side: Social Links */}
+              <Flex
+                direction="column"
+                gap="16"
+                style={{
+                  flex: "1 1 250px",
+                  maxWidth: "350px",
+                }}
+              >
+                {[
+                  { label: "LinkedIn", url: "https://linkedin.com/in/soumyadip-sil" },
+                  { label: "GitHub", url: "https://github.com/SoumyadipSil" },
+                  { label: "Email", url: "mailto:soumyadipsil602@gmail.com" },
+                  { label: "Blog", url: "https://afterhours-blog.vercel.app/" },
+                ].map((social) => (
+                  <Button
+                    key={social.label}
+                    size="l"
+                    weight="default"
+                    onClick={() => window.open(social.url, "_blank")}
+                    style={{
+                      background: colors.background_dark,
+                      color: colors.foreground,
+                      fontFamily: inter_tight.style.fontFamily,
+                      fontSize: "1.2em",
+                      borderRadius: "12px",
+                      padding: "16px 32px",
+                      fontWeight: 500,
+                      cursor: "pointer",
+                      width: "100%",
+                      justifyContent: "center",
+                      border: "1px solid #333"
+                    }}
+                  >
+                    {social.label}
+                  </Button>
+                ))}
+              </Flex>
+
+              {/* Right side: Townsquare */}
+              <Flex
+                direction="column"
+                radius="xl"
+                padding="m"
+                gap="16"
+                style={{
+                  flex: "3 1 450px",
+                  backgroundColor: colors.background_dark,
+                  border: "1px solid #333",
+                  color: colors.foreground,
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: inter_tight.style.fontFamily,
+                    fontSize: "1.2em",
+                    fontWeight: "500",
+                    textAlign: "center"
+                  }}
+                >
+                  A common place for page visitors to interact
+                </Text>
+                <Flex
+                  fillWidth
+                  fillHeight
+                  style={{
+                    overflow: "hidden",
+                    borderRadius: "12px",
+                  }}
+                >
+                  <TownsquareWidget />
+                </Flex>
+              </Flex>
+            </div>
+          </Column>
+        </Flex>
+        
         {/* End footer */}
         <Flex
           fillWidth

@@ -135,11 +135,11 @@ export default function Home() {
                   align="center"
                   className="hero-text"
                 >
-                  Hello, I'm Divyanshu. I have{" "}
-                  <span>5+ years of experience in development</span>. Crafting
-                  applications for{" "}
+                  Hello, I'm Soumyadip. I am a{" "}
+                  <span>Full-Stack Developer</span>. Crafting
+                  experiences for the{" "}
                   <span style={{ color: colors.text_gray }}>
-                    open source community
+                    modern web
                   </span>
                   .
                 </Text>
@@ -155,7 +155,7 @@ export default function Home() {
                     setGithubButtonClicked(true);
                     setTimeout(() => {
                       window.open(
-                        "https://github.com/divyanshudhruv",
+                        "https://github.com/SoumyadipSil",
                         "_blank"
                       );
                       setGithubButtonClicked(false);
