@@ -1157,7 +1157,10 @@ export default function Home() {
                       (e.currentTarget as HTMLButtonElement).style.color =
                         "#fff";
                     }}
-                    href="mailto:soumyadipsil689@gmail.com"
+                    onClick={() => {
+                      window.location.href = "mailto:soumyadipsil689@gmail.com";
+                      navigator.clipboard.writeText("soumyadipsil689@gmail.com");
+                    }}
                   >
                     <Text
                       style={{
@@ -1923,6 +1926,8 @@ export default function Home() {
                     onClick={() => {
                       if (social.url.startsWith("mailto:")) {
                         window.location.href = social.url;
+                        const emailAddress = social.url.replace("mailto:", "");
+                        navigator.clipboard.writeText(emailAddress);
                       } else {
                         window.open(social.url, "_blank");
                       }
