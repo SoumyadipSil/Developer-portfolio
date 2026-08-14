@@ -1157,7 +1157,7 @@ export default function Home() {
                       (e.currentTarget as HTMLButtonElement).style.color =
                         "#fff";
                     }}
-                    href="soumyadipsil689@gmail.com"
+                    href="mailto:soumyadipsil689@gmail.com"
                   >
                     <Text
                       style={{
@@ -1831,7 +1831,7 @@ export default function Home() {
                   link="https://www.canva.com/"
                 />
                 <StackCard
-                  logoSrc="https://s3-alpha.figma.com/hub/file/2811018019/cae7d25d-8aff-4c49-8189-fad585dfb7cb-cover.png"
+                  logoSrc="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
                   name="Figma"
                   description="UI/UX"
                   link="https://www.figma.com/"
@@ -1920,7 +1920,13 @@ export default function Home() {
                     key={social.label}
                     size="l"
                     weight="default"
-                    onClick={() => window.open(social.url, "_blank")}
+                    onClick={() => {
+                      if (social.url.startsWith("mailto:")) {
+                        window.location.href = social.url;
+                      } else {
+                        window.open(social.url, "_blank");
+                      }
+                    }}
                     style={{
                       background: colors.background_dark,
                       color: colors.foreground,
