@@ -1914,40 +1914,94 @@ export default function Home() {
                 }}
               >
                 {[
-                  { label: "LinkedIn", url: "https://linkedin.com/in/soumyadip-sil" },
-                  { label: "GitHub", url: "https://github.com/SoumyadipSil" },
-                  { label: "Email", url: "mailto:soumyadipsil602@gmail.com" },
-                  { label: "Blog", url: "https://afterhours-blog.vercel.app/" },
+                  { 
+                    label: "LinkedIn", 
+                    url: "https://www.linkedin.com/in/soumyadip-sil-bb0935385/",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg",
+                    description: "Professional",
+                    copyable: true
+                  },
+                  { 
+                    label: "GitHub", 
+                    url: "https://github.com/SoumyadipSil",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+                    description: "Code",
+                    copyable: true
+                  },
+                  { 
+                    label: "Email", 
+                    url: "mailto:soumyadipsil602@gmail.com",
+                    logo: "https://cdn-icons-png.flaticon.com/512/732/732200.png",
+                    description: "Contact",
+                    copyable: true
+                  },
+                  { 
+                    label: "Blog", 
+                    url: "https://afterhours-blog.vercel.app/",
+                    logo: "https://cdn-icons-png.flaticon.com/512/4922/4922073.png",
+                    description: "Writing",
+                    copyable: false
+                  },
                 ].map((social) => (
-                  <Button
-                    key={social.label}
-                    size="l"
-                    weight="default"
-                    onClick={() => {
-                      if (social.url.startsWith("mailto:")) {
-                        window.location.href = social.url;
-                        const emailAddress = social.url.replace("mailto:", "");
-                        navigator.clipboard.writeText(emailAddress);
-                      } else {
-                        window.open(social.url, "_blank");
-                      }
-                    }}
-                    style={{
-                      background: colors.background_dark,
-                      color: colors.foreground,
-                      fontFamily: inter_tight.style.fontFamily,
-                      fontSize: "1.2em",
-                      borderRadius: "12px",
-                      padding: "16px 32px",
-                      fontWeight: 500,
-                      cursor: "pointer",
-                      width: "100%",
-                      justifyContent: "center",
-                      border: "1px solid #333"
-                    }}
-                  >
-                    {social.label}
-                  </Button>
+                  <Column key={social.label} gap="8" fillWidth>
+                    <StackCard
+                      logoSrc={social.logo}
+                      name={social.label}
+                      description={social.description}
+                      link={social.url}
+                      bgDark={true}
+                    />
+                    {social.copyable && (
+                      <Row
+                        vertical="center"
+                        horizontal="between"
+                        padding="8"
+                        style={{
+                          background: colors.background_dark,
+                          border: "1px solid #333",
+                          borderRadius: "8px"
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontFamily: inter_tight.style.fontFamily,
+                            fontSize: "0.8em",
+                            color: colors.text_gray,
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            maxWidth: "200px"
+                          }}
+                        >
+                          {social.url.replace("mailto:", "")}
+                        </Text>
+                        <button
+                          onClick={(e) => {
+                            navigator.clipboard.writeText(social.url.replace("mailto:", ""));
+                            const btn = e.currentTarget;
+                            const originalText = btn.innerText;
+                            btn.innerText = "Copied!";
+                            setTimeout(() => { btn.innerText = originalText; }, 2000);
+                          }}
+                          style={{
+                            padding: "4px 12px",
+                            background: "#333",
+                            color: "#fff",
+                            border: "1px solid #444",
+                            cursor: "pointer",
+                            borderRadius: "4px",
+                            fontSize: "0.8em",
+                            fontFamily: inter_tight.style.fontFamily,
+                            transition: "background 0.2s"
+                          }}
+                          onMouseEnter={(e) => (e.currentTarget.style.background = "#444")}
+                          onMouseLeave={(e) => (e.currentTarget.style.background = "#333")}
+                        >
+                          Copy
+                        </button>
+                      </Row>
+                    )}
+                  </Column>
                 ))}
               </Flex>
 
