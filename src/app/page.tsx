@@ -59,6 +59,45 @@ const skills = [
   {
     icon: (
       <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
+        alt="C"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="C"
+      />
+    ),
+    label: "C",
+  },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+        alt="C++"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="C++"
+      />
+    ),
+    label: "C++",
+  },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+        alt="Python"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Python"
+      />
+    ),
+    label: "Python",
+  },
+  {
+    icon: (
+      <img
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
         alt="HTML"
         width={17}
@@ -124,28 +163,15 @@ const skills = [
   {
     icon: (
       <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-        alt="Python"
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+        alt="Next.js"
         width={17}
         height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Python"
+        style={{ borderRadius: "4px", background: "#fff" }}
+        aria-label="Next.js"
       />
     ),
-    label: "Python",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-        alt="Firebase"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Firebase"
-      />
-    ),
-    label: "Firebase",
+    label: "Next.js",
   },
   {
     icon: (
@@ -163,6 +189,32 @@ const skills = [
   {
     icon: (
       <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+        alt="Supabase"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Supabase"
+      />
+    ),
+    label: "Supabase",
+  },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg"
+        alt="SQL"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="SQL"
+      />
+    ),
+    label: "SQL",
+  },
+  {
+    icon: (
+      <img
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
         alt="Git"
         width={17}
@@ -172,231 +224,6 @@ const skills = [
       />
     ),
     label: "Git",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-        alt="Figma"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Figma"
-      />
-    ),
-    label: "Figma",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-        alt="C#"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="C#"
-      />
-    ),
-    label: "C#",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
-        alt="Angular"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Angular"
-      />
-    ),
-    label: "Angular",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-        alt="Java"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Java"
-      />
-    ),
-    label: "Java",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-        alt="PHP"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="PHP"
-      />
-    ),
-    label: "PHP",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
-        alt="Ruby"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Ruby"
-      />
-    ),
-    label: "Arduino",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
-        alt="Go"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Go"
-      />
-    ),
-    label: "Go",
-  },
-
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-        alt="Docker"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Docker"
-      />
-    ),
-    label: "Docker",
-  },
-
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-        alt="MongoDB"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="MongoDB"
-      />
-    ),
-    label: "MongoDB",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-        alt="MySQL"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="MySQL"
-      />
-    ),
-    label: "MySQL",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-        alt="PostgreSQL"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="PostgreSQL"
-      />
-    ),
-    label: "PostgreSQL",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
-        alt="GraphQL"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="GraphQL"
-      />
-    ),
-    label: "GraphQL",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-        alt="Next.js"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px", background: "#fff" }}
-        aria-label="Next.js"
-      />
-    ),
-    label: "Next.js",
-  },
-
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"
-        alt="Sass"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Sass"
-      />
-    ),
-    label: "Sass",
-  },
-
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
-        alt="npm"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px", background: "#fff" }}
-        aria-label="npm"
-      />
-    ),
-    label: "npm",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg"
-        alt="Yarn"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="Yarn"
-      />
-    ),
-    label: "Yarn",
-  },
-  {
-    icon: (
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
-        alt="GitLab"
-        width={17}
-        height={17}
-        style={{ borderRadius: "4px" }}
-        aria-label="GitLab"
-      />
-    ),
-    label: "GitLab",
   },
   {
     icon: (
@@ -414,6 +241,19 @@ const skills = [
   {
     icon: (
       <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+        alt="Linux"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Linux"
+      />
+    ),
+    label: "Linux",
+  },
+  {
+    icon: (
+      <img
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
         alt="VS Code"
         width={17}
@@ -427,19 +267,41 @@ const skills = [
   {
     icon: (
       <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
-        alt="Linux"
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
+        alt="Arduino"
         width={17}
         height={17}
         style={{ borderRadius: "4px" }}
-        aria-label="Linux"
+        aria-label="Arduino"
       />
     ),
-    label: "Linux",
+    label: "Arduino",
   },
   {
-    icon: <></>,
-    label: "And more",
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+        alt="Java"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Java"
+      />
+    ),
+    label: "Java",
+  },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg"
+        alt="Svelte"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Svelte"
+      />
+    ),
+    label: "Svelte",
   },
 ];
 
@@ -1142,8 +1004,8 @@ export default function Home() {
                     unoptimized
                     radius="m"
                     border="neutral-strong"
-                    alt="Vadodara Location"
-                    title="Vadodara Location"
+                    alt="Kolkata Location"
+                    title="Kolkata Location"
                   />
                   <Text
                     onBackground="neutral-medium"
@@ -1627,11 +1489,6 @@ export default function Home() {
                 and working with React, Next.js, TypeScript, and Appwrite.
                 <br />
                 <br />
-                I love experimenting with new frameworks and constantly
-                improving my skills. I'm also an artist and aquascaper constantly finding 
-                life and creating art out of everyday things.
-                <br />
-                <br />
                 Along the way, I've built some side projects,
                 and shared the journey in my
                 {" "}
@@ -1802,24 +1659,18 @@ export default function Home() {
                 },
                 {
                   logo: "/me.webp",
-                  name: "Self Employed ",
+                  name: "Self Employed",
                   role: "Full-Stack Developer",
                   period: "2023 - NOW",
                 },
-                {
-                  logo: "/me.webp",
-                  name: "Self Employed",
-                  role: "Software Engineer",
-                  period: "2020 - NOW",
-                },
-              ].map((exp, idx) => (
+              ].map((exp, idx, arr) => (
                 <Row
                   key={exp.name}
                   fillWidth
                   vertical="center"
                   horizontal="between"
                   style={{
-                    borderBottom: idx !== 2 ? "1px solid #eee" : undefined,
+                    borderBottom: idx !== arr.length - 1 ? "1px solid #eee" : undefined,
                     paddingBottom: "18px",
                   }}
                 >
@@ -1913,80 +1764,95 @@ export default function Home() {
             <Flex fillWidth center fitHeight>
               <Grid gap="20" columns={4} fillWidth className="stack-grid">
                 <StackCard
-                  logoSrc="https://framerusercontent.com/images/ZmOuFXkoGoEpOrAIJdOqFqdcs0.png"
-                  name="Framer"
-                  description="Web design"
-                  link="https://framer.com/"
+                  logoSrc="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png"
+                  name="Vercel"
+                  description="Deployment & Hosting"
+                  link="https://vercel.com/"
+                  bgDark={true}
                 />
                 <StackCard
-                  logoSrc="https://s3-alpha.figma.com/hub/file/2811018019/cae7d25d-8aff-4c49-8189-fad585dfb7cb-cover.png"
-                  name="Figma"
-                  description="Product design"
-                  link="https://www.figma.com/design-systems/"
-                  bgDark={false}
+                  logoSrc="https://intellyx.com/wp-content/uploads/2019/08/Render-cloud-intellyx-BC-logo.png"
+                  name="Render"
+                  description="Cloud Hosting"
+                  link="https://render.com/"
                 />
                 <StackCard
-                  logoSrc="https://framerusercontent.com/images/1kev4DX36PMe8zIqywvGjq71Q.png?scale-down-to=512"
-                  name="MyFind"
-                  description="Inspiration"
-                  link="https://myfind.com/"
+                  logoSrc="https://railway.app/brand/logo-dark.png"
+                  name="Railway"
+                  description="Infrastructure"
+                  link="https://railway.app/"
                 />
                 <StackCard
-                  logoSrc="https://cdn-icons-png.flaticon.com/512/6124/6124991.png"
-                  name="Trello"
-                  description="Planning"
-                  link="https://trello.com/"
+                  logoSrc="https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png"
+                  name="Supabase"
+                  description="Backend & Database"
+                  link="https://supabase.com/"
                 />
                 <StackCard
-                  logoSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi_3XZlnOm4DOJabuOzmsjjPrzM9_j9M4NgA&s"
-                  name="Slack"
-                  description="Communication"
-                  link="https://slack.com/intl/en-gb/?"
+                  logoSrc="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg"
+                  name="Spring Boot"
+                  description="Java Framework"
+                  link="https://spring.io/projects/spring-boot"
                 />
                 <StackCard
-                  logoSrc="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png"
-                  name="Notion"
-                  description="Communication"
-                  link="https://www.notion.com/"
+                  logoSrc="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
+                  name="Git"
+                  description="Version Control"
+                  link="https://git-scm.com/"
                 />
                 <StackCard
-                  logoSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5GK1tarqSNXWnxioqqJl75pxRR0UNrM1Z8w&s"
-                  name="Arc"
-                  description="Browser"
-                  link="https://arc.net/"
+                  logoSrc="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                  name="MySQL"
+                  description="Database"
+                  link="https://www.mysql.com/"
+                />
+                <StackCard
+                  logoSrc="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
+                  name="Arduino IDE"
+                  description="Development"
+                  link="https://www.arduino.cc/"
+                />
+                <StackCard
+                  logoSrc="https://build.nvidia.com/favicon.ico"
+                  name="Nvidia NIM"
+                  description="AI Models"
+                  link="https://build.nvidia.com/explore/discover"
+                />
+                <StackCard
+                  logoSrc="https://openrouter.ai/favicon.ico"
+                  name="OpenRouter"
+                  description="AI Routing"
+                  link="https://openrouter.ai/"
                 />
                 <StackCard
                   logoSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf2oL2YKatu2Kc0f8UQnOsVSv9Pv7w8yuRbA&s"
                   name="Canva"
-                  description="Graphic design"
-                  link="https://www.canva.com/en_in/"
+                  description="Design"
+                  link="https://www.canva.com/"
                 />
-                
                 <StackCard
-                  logoSrc="https://avatars.githubusercontent.com/u/54212428?s=280&v=4"
-                  name="Chakra UI"
-                  description="Design system"
-                  link="https://chakra-ui.com/"
-                  bgDark={true}
+                  logoSrc="https://s3-alpha.figma.com/hub/file/2811018019/cae7d25d-8aff-4c49-8189-fad585dfb7cb-cover.png"
+                  name="Figma"
+                  description="UI/UX"
+                  link="https://www.figma.com/"
                 />
                 <StackCard
                   logoSrc="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg"
-                  name="Visual Studio Code (VS Code)"
-                  description="AI-powered IDE"
+                  name="VS Code"
+                  description="Editor"
                   link="https://code.visualstudio.com/"
                 />
-                 <StackCard
-                  logoSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTVC1k-iS7Bx1ySL43nPK8EEjn-Ct3kHqj3Q&s"
-                  name="n8n"
-                  description="AI Agent Platform"
-                  link="https://n8n.io/"
-                  bgDark={false}
+                <StackCard
+                  logoSrc="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png"
+                  name="Notion"
+                  description="Workspace"
+                  link="https://www.notion.com/"
                 />
                 <StackCard
-                  logoSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmACJJaIMUUdofKw_Xq-G4b6i7vsoNbhdfw&s"
-                  name="Make.com"
-                  description="AI Agent Platform"
-                  link="https://www.make.com/en"
+                  logoSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTVC1k-iS7Bx1ySL43nPK8EEjn-Ct3kHqj3Q&s"
+                  name="n8n"
+                  description="Automation"
+                  link="https://n8n.io/"
                 />
               </Grid>
             </Flex>

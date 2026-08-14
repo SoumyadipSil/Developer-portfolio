@@ -1,5 +1,5 @@
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://soumyadipsil.is-a.dev";
+const baseURL = "https://soumyadipsil.vercel.app";
 
 // Import and set font for each variant
 import { Geist } from "next/font/google";
@@ -114,7 +114,7 @@ const meta = {
     description:
       "SOUMYADIP SIL ✷ Full-stack developer | I build innovative projects | Skilled in React, Next.js, TypeScript, C++, Python |I love solving problems | Always learning new tech.",
     image: "/og.png",
-    canonical: "https://soumyadipsil.is-a.dev",
+    canonical: "https://soumyadipsil.vercel.app",
     robots: "index,follow",
   },
   // add more routes and reference them in page.tsx
