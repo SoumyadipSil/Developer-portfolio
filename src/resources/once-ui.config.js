@@ -132,7 +132,7 @@ const schema = {
 // social links
 const social = {
   twitter: "https://www.twitter.com/",
-  linkedin: "https://www.linkedin.com/in/soumyadip-sil-689/",
+  linkedin: "https://www.linkedin.com/in/soumyadip-sil-bb0935385/",
   github: "https://github.com/SoumyadipSil",
 };
 

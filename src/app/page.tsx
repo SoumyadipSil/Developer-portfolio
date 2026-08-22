@@ -1059,21 +1059,23 @@ export default function Home() {
                     }}
                     className="nav-links"
                   >
-                    <Button
-                      variant="tertiary"
-                      weight="default"
-                      className="nav-links"
-                    >
-                      <Text
-                        style={{
-                          fontFamily: inter_tight.style.fontFamily,
-                          fontSize: "1.1em",
-                        }}
-                        onBackground="neutral-weak"
+                    <a href="/Soumyadip_Sil_Resume.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                      <Button
+                        variant="tertiary"
+                        weight="default"
+                        className="nav-links"
                       >
-                        Resume
-                      </Text>
-                    </Button>{" "}
+                        <Text
+                          style={{
+                            fontFamily: inter_tight.style.fontFamily,
+                            fontSize: "1.1em",
+                          }}
+                          onBackground="neutral-weak"
+                        >
+                          Resume
+                        </Text>
+                      </Button>
+                    </a>{" "}
                     <Button
                       variant="tertiary"
                       weight="default"
@@ -1262,11 +1264,7 @@ export default function Home() {
                   paddingTop="m"
                   overflow="hidden"
                 >
-                  <Flex
-                    height={0.05}
-                    className="logos-worked-with-separator"
-                  ></Flex>
-                  <LogosWorkedWith />
+                  {/* Logos removed per user request */}
                   <Flex style={{ width: "100vw" }}>
                     <FlickeringGridDemo color={colors.primary} />
                   </Flex>
@@ -2180,7 +2178,7 @@ export default function Home() {
                   }}
                   onClick={() =>
                     window.open(
-                      "https://linkedin.com/in/soumyadip-sil",
+                      "https://www.linkedin.com/in/soumyadip-sil-bb0935385/",
                       "_blank"
                     )
                   }
