@@ -1049,13 +1049,28 @@ export default function Home() {
                   <Row
                     fitWidth
                     fillHeight
-                    border="neutral-medium"
                     center
                     vertical="center"
-                    padding="s"
-                    radius="m"
+                    padding="4"
                     style={{
-                      backgroundColor: colors.background_light,
+                      background: "linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01))",
+                      backdropFilter: "blur(24px) saturate(150%)",
+                      WebkitBackdropFilter: "blur(24px) saturate(150%)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+                      borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
+                      boxShadow: "0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+                      borderRadius: "9999px",
+                      transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease",
+                      transformOrigin: "center center",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.transform = "scale(1.05)";
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 15px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.transform = "scale(1)";
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)";
                     }}
                     className="nav-links"
                   >

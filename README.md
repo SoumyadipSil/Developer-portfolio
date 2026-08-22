@@ -1,123 +1,64 @@
-# 🌃🌐 My Portfolio — Animated
+# Soumyadip Sil | Developer Portfolio
 
-Welcome to my **`⛓️‍💥 modern`, ` 🏃‍♂️ animated` `🫠 portfolio`**! This site is a dynamic showcase of my **`✨ skills`**, **`📁 projects`**, and professional **`🏫 experience`**—all built with the latest frontend technologies and a focus on **`🍧 smooth`**, engaging user experiences.
+Welcome to the source code of my personal portfolio website. This project showcases my skills, experience, and the software I've built, wrapped in a highly aesthetic, animated, and responsive user interface.
 
-<br>
+## ?? Tech Stack
 
-> [!NOTE]  
-> This portfolio is a living project—expect updates and new features regularly.
+This portfolio is built with a modern, high-performance web stack:
 
+- **Framework:** [Next.js (App Router)](https://nextjs.org/)
+- **Language:** TypeScript
+- **Styling & UI:** 
+  - Tailwind CSS
+  - Custom Glassmorphism & Neumorphism elements
+  - Once UI (Design System)
+  - Magic UI & Framer Motion (Animations)
+- **Deployment:** Vercel
 
-<br>
-  
-## 🙋‍♂️ About This Portfolio
+## ?? Project Structure
 
-<br>
+The project follows a clean, modular Next.js 15 structure:
 
-## ✨ **Features**
-
-A next-gen, visually appealing portfolio built with [Once UI](https://once-ui.com), focused on clarity and interactivity.
-
-**`1.`** 🖼️ **`Animated Components`**: Smooth **transitions** and engaging UI elements  
-**`2.`** 🧭 **`Seamless Navigation`**: Effortless **movement** between sections  
-**`3.`** 📱 **`Responsive Design`**: Optimized for all **screens**  
-**`4.`** 🗂️ **`Modular Content`**: Easy to **update** and expand  
-**`5.`** 🎨 **`Modern UI`**: Built with **Once U**I and **Framer Motion** for a polished look
-
-<br>
-
-**`Visit My Portfolio`** and see my work in action.
-
-<br>
-
-## 🛠️ **Technology Stack**
-
-- ⚛️ **`React`** (Next.js)
-- 🟦 **`TypeScript`**
-- 🟨 **`JavaScript`**
-- 🎨 **`CSS Modules`**
-- 🦸 **`Framer Motion`** (Animations)
-- 🧩 **`Once UI`** (Design System)
-- ▲ **`Vercel`** (Deployment)
-
-<br>
-
-## 🎥 **Demo**
-
-See the portfolio live: **`Demo`**
-
-<br>
-
-## 📁 Project Structure
-
-A quick look at the directory layout:
-
-```
-portfolio/
-├── src/
-│   ├── app/                # Main pages and sections
-│   ├── components/         # UI components
-│   └── lib/                # Utilities
-├── public/                 # Static assets
-├── package.json
+```text
++-- public/                  # Static assets (Resume PDF, images, icons)
++-- src/
+�   +-- app/                 # Next.js App Router root
+�   �   +-- api/             # Backend API routes (Email handling, OG images)
+�   �   +-- components/      # Core page sections (Hero, Projects, Experience, Skills)
+�   �   +-- layout.tsx       # Root layout & providers
+�   �   +-- page.tsx         # Main landing page
+�   +-- blocks/              # Complex animated components (Text animations, Cursors)
+�   +-- components/          # Shared UI components (Magic UI effects, Buttons)
+�   +-- lib/                 # Utility functions
+�   +-- resources/           # Global configuration (once-ui.config.js) and custom CSS
++-- tailwind.config.ts       # Tailwind styling configuration
++-- package.json             # Project dependencies
 ```
 
-<br>
+## ? Key Features
 
-## 🌠 Getting Started
+- **Advanced UI/UX:** Features a premium glassmorphism navigation bar, smooth scroll animations, and interactive hover states.
+- **Component-Driven:** Highly modular architecture making it easy to swap out projects, skills, or experience blocks.
+- **Fully Responsive:** Beautifully adapts to all screen sizes, from mobile devices to ultrawide desktop monitors.
+- **SEO Optimized:** Dynamic OpenGraph routing and semantic HTML structure.
 
-Want to run this portfolio locally and see what's going on? Follow these steps:
+## ??? Local Development
 
-### ⚙️ Prerequisites
-
-**`1.`** Node.js 18+  
-**`2.`** npm or yarn
-
-### 📩 Installation
-
-1. **Clone the repository:**
-```bash
-```bash
-git clone https://github.com/SoumyadipSil/portfolio_soumyadip.git
-cd portfolio
-```
-
-2. **Install dependencies:**
+To run this project locally, clone the repository and install the dependencies:
 
 ```bash
+# Install dependencies
 npm install
-```
 
-3. **Run the development server:**
-
-```bash
+# Start the development server
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
-<br>
+## ?? Contact
 
-##  **Author**
-
-**Soumyadip Sil**  
-- [GitHub]()  
-- [Website]()  
-- [LinkedIn](https://www.linkedin.com/in/)
-
-<br>
-
-## 📄 **License**
-
-See [`LICENSE`](LICENSE) for details.
-
-<br>
-
-## 🏷️ **Credits**
-
-- 🧩 Built with [**`Once UI`**](https://once-ui.com)
-- 🦸 Animated by [**`Framer Motion`**](https://www.framer.com/motion/)
-
-<br>
-
+- **Email:** soumyadipsil602@gmail.com
+- **LinkedIn:** [Soumyadip Sil](https://www.linkedin.com/in/soumyadip-sil-bb0935385/)
+- **GitHub:** [@SoumyadipSil](https://github.com/SoumyadipSil)
 
