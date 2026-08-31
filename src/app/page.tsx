@@ -26,7 +26,8 @@ import NeumorphButton from "@/components/ui/neumorph-button";
 import LogosWorkedWith from "@/components/logos-worked-with";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { Meteors } from "@/components/magicui/meteors";
-import { ArrowUp, ArrowUpRight, Menu, Star } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Menu, Star, X, ExternalLink, Sparkles, Send } from "lucide-react";
+import { AIChatPill } from "@/components/ai-chat-pill";
 import SplitText from "@/blocks/TextAnimations/SplitText/SplitText";
 import GradualBlurMemo from "@/blocks/Animations/GradualBlur/GradualBlur";
 import AnimatedContent from "@/blocks/Animations/AnimatedContent/AnimatedContent";
@@ -307,25 +308,65 @@ const skills = [
 
 const cards = [
   {
-    src: "/AfterHours_blog.png",
-    alt: "AfterHours blog project",
-    href: "https://afterhours-blog.vercel.app/",
+    src: "/images/projects/slax.png",
+    alt: "Slax - MCP Connector SaaS",
+    title: "Slax",
+    description: "MCP connector SaaS for Notion Workspace. Connect your AI agents straight into Notion with scoped, permissioned read and write access — no custom integration code needed.",
+    tags: ["SaaS", "MCP", "Notion", "AI Agents"],
+    githubUrl: "",
+    siteUrl: "",
+    comingSoon: true,
   },
   {
-    src: "/LetsInvoice.png",
-    alt: "LetsInvoice project",
-    href: "https://letsinvoice-seven.vercel.app/",
+    src: "/images/projects/afterhours.png",
+    alt: "AfterHours - Personal Blog",
+    title: "AfterHours",
+    description: "A journal of nights, reflections & late-night thoughts. Personal blog with an integrated AI assistant, ambient music player, and a curated archive of writing.",
+    tags: ["Blog", "AI Assistant", "Next.js", "Vercel"],
+    githubUrl: "https://github.com/SoumyadipSil/Afterhours-blog",
+    siteUrl: "https://afterhours-blog.vercel.app/",
+    comingSoon: false,
   },
   {
-    src: "simple_portfolio.png",
-    alt: "Simple Portfolio project",
-    href: "https://personal-portfolio-green-nu-18.vercel.app/#home",
+    src: "/images/projects/robot.png",
+    alt: "Autonomous Multitask Assistant Robot",
+    title: "Autonomous Multitask Assistant Robot",
+    description: "Final year project praised by the department. An ESP32-based robot capable of autonomous navigation, obstacle avoidance, and multitask operations with OLED display and speaker integration.",
+    tags: ["Arduino", "ESP32", "IoT", "Robotics"],
+    githubUrl: "https://github.com/SoumyadipSil/Autonomous-Multitask-Assistant-Robot",
+    siteUrl: "",
+    comingSoon: false,
   },
-  // {
-  //   src: "/your-project-image-4.png",
-  //   alt: "A description of your fourth project",
-  //   href: "https://github.com/SoumyadipSil/your-project-repo-4",
-  // },
+  {
+    src: "/images/projects/letsinvoice.png",
+    alt: "LetsInvoice",
+    title: "LetsInvoice",
+    description: "Professional GST-ready invoices in under 3 minutes. 7 stunning templates, clean PDF downloads for just ₹99. No account needed, ever. Supports INR & USD.",
+    tags: ["SaaS", "Next.js", "PDF", "Finance"],
+    githubUrl: "https://github.com/SoumyadipSil/LetsInvoice",
+    siteUrl: "https://letsinvoice-seven.vercel.app/",
+    comingSoon: false,
+  },
+  {
+    src: "/images/projects/mcp-notion.png",
+    alt: "MCP with Notion",
+    title: "MCP with Notion",
+    description: "MCP connector for personal Notion Workspace. Bridges AI agents with Notion's API for seamless workspace management, page creation, and database queries.",
+    tags: ["MCP", "Notion", "TypeScript", "API"],
+    githubUrl: "https://github.com/SoumyadipSil/MCP-with-Notion",
+    siteUrl: "",
+    comingSoon: false,
+  },
+  {
+    src: "/images/projects/sil-builders.png",
+    alt: "Sil Builders",
+    title: "Sil Builders",
+    description: "Commercial website for a construction & renovation company. Premium design with service showcase, project gallery, quote request system, and WhatsApp integration.",
+    tags: ["Commercial", "Next.js", "Business", "Web"],
+    githubUrl: "https://github.com/SoumyadipSil/Sil-Builders",
+    siteUrl: "",
+    comingSoon: false,
+  },
 ];
 
 type MinimalAboutCardProps = {
@@ -361,210 +402,248 @@ function MinimalAboutCard({ src, alt }: MinimalAboutCardProps) {
   );
 }
 
-function MinimalCardDemo() {
+type ProjectCardType = typeof cards[number];
+
+function ProjectModal({ project, onClose }: { project: ProjectCardType; onClose: () => void }) {
+  React.useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleEsc);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="project-modal-overlay"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="project-modal-content">
+        {/* Close button */}
+        <button
+          className="project-modal-close"
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          <X size={20} />
+        </button>
+
+        {/* Top links row */}
+        <div className="project-modal-links">
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-modal-link-btn"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+                width={16}
+                height={16}
+                style={{ filter: "invert(1)" }}
+              />
+              GitHub
+            </a>
+          ) : (
+            <span className="project-modal-link-btn project-modal-link-disabled">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+                width={16}
+                height={16}
+                style={{ filter: "invert(1)", opacity: 0.4 }}
+              />
+              {project.comingSoon ? "Coming Soon" : "Private"}
+            </span>
+          )}
+          {project.siteUrl ? (
+            <a
+              href={project.siteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-modal-link-btn project-modal-link-site"
+            >
+              <ExternalLink size={16} />
+              Live Site
+            </a>
+          ) : (
+            <span className="project-modal-link-btn project-modal-link-disabled">
+              <ExternalLink size={16} style={{ opacity: 0.4 }} />
+              {project.comingSoon ? "Coming Soon" : "No Site"}
+            </span>
+          )}
+        </div>
+
+        {/* Project image */}
+        <div className="project-modal-image-wrapper">
+          <img
+            src={project.src}
+            alt={project.alt}
+            className="project-modal-image"
+          />
+          {project.comingSoon && (
+            <div className="project-modal-coming-soon-badge">
+              <Sparkles size={14} />
+              Coming Soon
+            </div>
+          )}
+        </div>
+
+        {/* Project info */}
+        <div className="project-modal-info">
+          <h3
+            style={{
+              fontFamily: fraunces.style.fontFamily,
+              fontSize: "1.6em",
+              fontWeight: 400,
+              color: "#fff",
+              margin: 0,
+            }}
+          >
+            {project.title}
+          </h3>
+          <p
+            style={{
+              fontFamily: inter_tight.style.fontFamily,
+              fontSize: "0.95em",
+              color: "#999",
+              lineHeight: 1.6,
+              margin: 0,
+            }}
+          >
+            {project.description}
+          </p>
+          <div className="project-modal-tags">
+            {project.tags.map((tag) => (
+              <span key={tag} className="project-modal-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MinimalCardDemo({ viewMode, onOpenModal }: { viewMode: string; onOpenModal: (card: ProjectCardType) => void }) {
+  if (viewMode === "list") {
+    return (
+      <>
+        {cards.map((card) => (
+          <div
+            key={card.src}
+            className="project-list-item"
+            onClick={() => onOpenModal(card)}
+          >
+            <div className="project-list-image-wrapper">
+              <img
+                src={card.src}
+                alt={card.alt}
+                className="project-list-image"
+              />
+            </div>
+            <div className="project-list-info">
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <Text
+                  style={{
+                    fontFamily: fraunces.style.fontFamily,
+                    fontSize: "1.3em",
+                    color: colors.text,
+                    fontWeight: 400,
+                  }}
+                >
+                  {card.title}
+                </Text>
+                {card.comingSoon && (
+                  <span className="project-coming-soon-pill">Coming Soon</span>
+                )}
+              </div>
+              <Text
+                style={{
+                  fontFamily: inter_tight.style.fontFamily,
+                  fontSize: "0.9em",
+                  color: colors.text_gray,
+                  lineHeight: 1.5,
+                }}
+              >
+                {card.description}
+              </Text>
+              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "8px" }}>
+                {card.tags.map((tag) => (
+                  <span key={tag} className="project-tag-pill">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div className="project-list-arrow">
+              <ArrowUpRight size={20} color={colors.text_gray} />
+            </div>
+          </div>
+        ))}
+      </>
+    );
+  }
+
   return (
     <>
       {cards.map((card) => {
-        // Add refs and state for cursor position and visibility
-        const cursorRef = React.useRef<HTMLDivElement>(null);
-        const wrapperRef = React.useRef<HTMLDivElement>(null);
-        const [visible, setVisible] = React.useState(false);
-
-        // Track initial pointer position on enter
-        const initialPointer = React.useRef<{ x: number; y: number } | null>(
-          null
-        );
-
-        // Declare cursor position variables in the component scope
-        let targetX = 0,
-          targetY = 0;
-        let lastX = 0,
-          lastY = 0;
-
-        React.useEffect(() => {
-          let animationFrame: number;
-
-          const handlePointerMove = (e: PointerEvent) => {
-            if (wrapperRef.current) {
-              const rect = wrapperRef.current.getBoundingClientRect();
-              targetX = e.clientX - rect.left;
-              targetY = e.clientY - rect.top;
-            }
-          };
-
-          const animate = () => {
-            lastX += (targetX - lastX) * 0.2;
-            lastY += (targetY - lastY) * 0.2;
-            if (cursorRef.current) {
-              cursorRef.current.style.left = `${lastX}px`;
-              cursorRef.current.style.top = `${lastY}px`;
-              cursorRef.current.style.opacity = visible ? "1" : "0";
-            }
-            animationFrame = requestAnimationFrame(animate);
-          };
-
-          if (wrapperRef.current) {
-            wrapperRef.current.addEventListener(
-              "pointermove",
-              handlePointerMove
-            );
-          }
-          animate();
-
-          return () => {
-            if (wrapperRef.current) {
-              wrapperRef.current.removeEventListener(
-                "pointermove",
-                handlePointerMove
-              );
-            }
-            cancelAnimationFrame(animationFrame);
-          };
-        }, [visible]);
-
-        const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-          setVisible(true);
-          // if (wrapperRef.current) {
-          //   wrapperRef.current.style.cursor = "none";
-          // }
-          if (wrapperRef.current) {
-            const rect = wrapperRef.current.getBoundingClientRect();
-            initialPointer.current = {
-              x: e.clientX - rect.left,
-              y: e.clientY - rect.top,
-            };
-          }
-          // Set initial position instantly
-          if (initialPointer.current) {
-            // Set both target and last position so it spawns at entry
-            targetX = initialPointer.current.x;
-            targetY = initialPointer.current.y;
-            lastX = initialPointer.current.x;
-            lastY = initialPointer.current.y;
-            if (cursorRef.current) {
-              cursorRef.current.style.left = `${lastX}px`;
-              cursorRef.current.style.top = `${lastY}px`;
-            }
-          }
-        };
-
-        const handleMouseLeave = () => {
-          setVisible(false);
-          if (wrapperRef.current) {
-            wrapperRef.current.style.cursor = "";
-          }
-        };
-
         return (
           <div
             key={card.src}
-            ref={wrapperRef}
             style={{ position: "relative", display: "inline-block" }}
             className="minimal-card-hover-wrapper"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => {
-              setTimeout(() => {
-                window.open(card.href, "_blank");
-              }, 500);
-            }}
+            onClick={() => onOpenModal(card)}
           >
             <MinimalCard
               style={{
                 transition: "transform 0.2s cubic-bezier(.4,0,.2,1)",
                 cursor: "pointer",
+                position: "relative",
               }}
               className="minimal-card-hover"
             >
-              {/* Use a ref for smooth transform animation on hover */}
-              {(() => {
-                const imgRef = React.useRef<HTMLImageElement>(null);
-                return (
-                  <MinimalCardImage
-                    ref={imgRef}
-                    className="minimal-card-image"
-                    src={card.src}
-                    alt={card.alt}
-                    title={card.alt}
-                    onMouseEnter={() => {
-                      if (imgRef.current) {
-                        imgRef.current.style.transform = "scale(0.95)";
-                      }
-                    }}
-                    onMouseLeave={() => {
-                      if (imgRef.current) {
-                        imgRef.current.style.transform = "scale(1)";
-                      }
-                    }}
-                  />
-                );
-              })()}
-            </MinimalCard>
-            {/* <div
-              ref={cursorRef}
-              className="custom-cursor"
-              style={{
-                position: "absolute",
-                pointerEvents: "none",
-                zIndex: 9999,
-                width: "70x",
-                height: "50px",
-                borderRadius: "14px",
-                background: "#222222aa",
-                left: 0,
-                top: 0,
-                padding: "10px",
-                paddingTop: "10px",
-                paddingBottom: "10px",
-                opacity: 0,
-                transition: "opacity 0.2s",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.10)",
-              }}
-            >
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  color: "#fff",
-                  fontFamily: "inherit",
-                  fontWeight: 400,
-                  fontSize: "0.9em",
-                  letterSpacing: "0.01em",
-                  paddingLeft: "12px",
-                  paddingRight: "12px",
-                  userSelect: "none",
-                }}
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ marginRight: "2px" }}
-                  aria-hidden="true"
+              <MinimalCardImage
+                className="minimal-card-image"
+                src={card.src}
+                alt={card.alt}
+                title={card.alt}
+              />
+              {card.comingSoon && (
+                <div className="project-card-coming-soon">
+                  <Sparkles size={12} />
+                  Coming Soon
+                </div>
+              )}
+              <div className="project-card-title-overlay">
+                <span
+                  style={{
+                    fontFamily: inter_tight.style.fontFamily,
+                    fontSize: "0.95em",
+                    fontWeight: 500,
+                    color: "#fff",
+                  }}
                 >
-                  <path
-                    d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25"
-                    stroke="#fff"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Explore
-              </span>
-            </div> */}
+                  {card.title}
+                </span>
+                <ArrowUpRight size={16} color="#fff" />
+              </div>
+            </MinimalCard>
           </div>
         );
       })}
     </>
   );
 }
+
+
 
 type StarRatingProps = {
   stars: number;
@@ -901,6 +980,8 @@ export default function Home() {
   const lenis = useLenis((lenis) => {});
 
   const [githubButtonClicked, setGithubButtonClicked] = useState(false);
+  const [projectViewMode, setProjectViewMode] = React.useState<string>("grid");
+  const [selectedProject, setSelectedProject] = React.useState<ProjectCardType | null>(null);
 
   const [navFixed, setNavFixed] = React.useState(false);
 
@@ -1060,17 +1141,8 @@ export default function Home() {
                       borderTop: "1px solid rgba(255, 255, 255, 0.15)",
                       borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
                       boxShadow: "0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
-                      borderRadius: "9999px",
-                      transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease",
-                      transformOrigin: "center center",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.transform = "scale(1.05)";
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 15px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.transform = "scale(1)";
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)";
+                      borderRadius: "12px",
+                      transition: "box-shadow 0.4s ease",
                     }}
                     className="nav-links"
                   >
@@ -1078,7 +1150,7 @@ export default function Home() {
                       <Button
                         variant="tertiary"
                         weight="default"
-                        className="nav-links"
+                        className="nav-links nav-btn-hover"
                       >
                         <Text
                           style={{
@@ -1094,7 +1166,7 @@ export default function Home() {
                     <Button
                       variant="tertiary"
                       weight="default"
-                      className="nav-links"
+                      className="nav-links nav-btn-hover"
                       href="#projects"
                     >
                       <Text
@@ -1110,7 +1182,7 @@ export default function Home() {
                     <Button
                       variant="tertiary"
                       weight="default"
-                      className="nav-links"
+                      className="nav-links nav-btn-hover"
                       href="#about"
                     >
                       <Text
@@ -1126,7 +1198,7 @@ export default function Home() {
                     <Button
                       variant="tertiary"
                       weight="default"
-                      className="nav-links"
+                      className="nav-links nav-btn-hover"
                       href="#experience"
                     >
                       <Text
@@ -1330,18 +1402,18 @@ export default function Home() {
               <SegmentedControl
                 fillWidth={false}
                 textSize="xl"
-                selected="grid"
+                selected={projectViewMode}
                 buttons={[
                   { value: "grid", label: "Grid" },
                   { value: "list", label: "List" },
                 ]}
-                onToggle={(value) => console.log(value)}
+                onToggle={(value) => setProjectViewMode(value)}
               />
             </Row>
           </Row>
           <Flex height={1}></Flex>
-          <div className="project-grid">
-            <MinimalCardDemo />
+          <div className={projectViewMode === "grid" ? "project-grid" : "project-list"}>
+            <MinimalCardDemo viewMode={projectViewMode} onOpenModal={(card) => setSelectedProject(card)} />
           </div>{" "}
           <Row fillWidth center style={{ scale: 0.9 }}>
             <AnimatedContent
@@ -2268,6 +2340,27 @@ export default function Home() {
           </div>
         </Flex>
       </Flex>
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+      {/* AI Chat Assistant */}
+      <AIChatPill 
+        contextData={{
+          projects: cards.map(c => ({
+            title: c.title,
+            description: c.description,
+            tags: c.tags,
+            githubUrl: c.githubUrl,
+            siteUrl: c.siteUrl
+          })),
+          about: "I'm Soumyadip Sil, a developer building SaaS, robots, and AI integrations.",
+          skills: ["Next.js", "TypeScript", "AI Agents", "IoT", "Arduino"]
+        }} 
+      />
     </>
   );
 }
