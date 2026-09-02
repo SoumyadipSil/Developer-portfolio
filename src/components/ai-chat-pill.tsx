@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Sparkles, X, Send } from "lucide-react";
 
-// Optional: you can extend this interface later as you add more data
 export interface PortfolioContextData {
   projects: Array<{
     title: string;
@@ -12,7 +11,6 @@ export interface PortfolioContextData {
     githubUrl: string;
     siteUrl: string;
   }>;
-  // You can add more fields here later (e.g. skills, about text, etc.)
   about?: string;
   skills?: string[];
 }
@@ -21,12 +19,22 @@ interface AIChatPillProps {
   contextData?: PortfolioContextData;
 }
 
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
 export function AIChatPill({ contextData }: AIChatPillProps) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [messages, setMessages] = React.useState<{role: string; content: string}[]>([
-    { role: "assistant", content: "Hey! 👋 I'm Soumyadip's AI assistant. Ask me anything about his work, skills, or projects!" },
+  const [inputValue, setInputValue] = React.useState("");
+  const [messages, setMessages] = React.useState<Message[]>([
+    {
+      role: "assistant",
+      content: "Hey! 👋 I'm Soumyadip's AI assistant. Ask me anything about his work, skills, or projects!",
+    },
   ]);
-  const [input, setInput] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState("");
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -35,27 +43,74 @@ export function AIChatPill({ contextData }: AIChatPillProps) {
     }
   }, [messages]);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    const userMsg = input.trim();
-    setMessages((prev) => [...prev, { role: "user", content: userMsg }]);
-    setInput("");
-    
-    // TODO: Connect to backend (OpenRouter, Vercel AI SDK, etc.)
-    // You can pass `contextData` in the system prompt to the API here!
-    // Example:
-    // const systemPrompt = `You are Soumyadip's AI. Here is his portfolio info: ${JSON.stringify(contextData)}`;
+  const sendMessage = async () => {
+    const trimmed = inputValue.trim();
+    if (!trimmed || isLoading) return;
 
-    // Placeholder response - backend will be connected later
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "I'm not connected to a backend yet, but Soumyadip will hook me up soon! 🚀 In the meantime, feel free to explore the portfolio above.",
-        },
-      ]);
-    }, 800);
+    const userMessage: Message = { role: 'user', content: trimmed };
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
+    setInputValue('');
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: newMessages, contextData }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to get response');
+      }
+
+      // Handle streaming response
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      let assistantContent = '';
+
+      setMessages([...newMessages, { role: 'assistant', content: '' }]);
+
+      if (reader) {
+        let buffer = '';
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop() || '';
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              const data = line.slice(6);
+              if (data === '[DONE]') continue;
+              try {
+                const parsed = JSON.parse(data);
+                const delta = parsed.choices?.[0]?.delta?.content;
+                if (delta) {
+                  assistantContent += delta;
+                  const displayContent = assistantContent.replace(/<think>[\s\S]*?(<\/think>|$)/g, '').trim();
+                  setMessages([...newMessages, { role: 'assistant', content: displayContent }]);
+                }
+              } catch {
+                // Skip malformed chunks
+              }
+            }
+          }
+        }
+      }
+
+      if (!assistantContent) {
+        setMessages([...newMessages, { role: 'assistant', content: 'Hmm, I seem to be taking a nap. Try again in a moment.' }]);
+      }
+    } catch (err: any) {
+      setError(err.message || "Failed to fetch");
+      setMessages([...newMessages, { role: 'assistant', content: 'Something went wrong on my end. Try again?' }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -98,10 +153,15 @@ export function AIChatPill({ contextData }: AIChatPillProps) {
                     lineHeight: 1.5,
                   }}
                 >
-                  {msg.content}
+                  {msg.content || (msg.role === 'assistant' && isLoading && "...")}
                 </span>
               </div>
             ))}
+            {error && (
+              <div style={{ padding: "8px", color: "red", fontSize: "0.85em", textAlign: "center" }}>
+                Error: {error}
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
           <div className="ai-chat-input-area">
@@ -109,14 +169,23 @@ export function AIChatPill({ contextData }: AIChatPillProps) {
               type="text"
               className="ai-chat-input"
               placeholder="Ask me anything..."
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              disabled={isLoading}
               onKeyDown={(e) => {
-                if (e.key === "Enter") handleSend();
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  sendMessage();
+                }
               }}
               style={{ fontFamily: "var(--font-inter-tight), sans-serif" }}
             />
-            <button className="ai-chat-send" onClick={handleSend} aria-label="Send message">
+            <button 
+              className="ai-chat-send" 
+              onClick={sendMessage}
+              disabled={isLoading || !inputValue.trim()}
+              aria-label="Send message"
+            >
               <Send size={16} />
             </button>
           </div>

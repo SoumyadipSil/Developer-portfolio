@@ -1,15 +1,8 @@
 import { Row, Scroller } from "@once-ui-system/core";
 
 export default function LogosWorkedWith() {
-  return (
-    <Scroller direction="row" style={{ maxWidth: "90vw" }}>
-      <Row
-        gap="64"
-        center
-        style={{ scale: "0.6", minWidth: "800px" }}
-        fillWidth
-        className="logos-worked-with"
-      >
+  const svgs = (
+    <>
         <svg
           width="222"
           height="40"
@@ -248,7 +241,15 @@ export default function LogosWorkedWith() {
             fill="#1D0F5F"
           ></path>
         </svg>
-      </Row>
-    </Scroller>
+    </>
+  );
+
+  return (
+    <div className="skills-marquee-container">
+      <div className="skills-marquee-content logos-worked-with">
+        {svgs}
+        {svgs}
+      </div>
+    </div>
   );
 }
