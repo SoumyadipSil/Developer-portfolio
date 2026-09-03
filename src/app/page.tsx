@@ -31,6 +31,7 @@ import { AIChatPill } from "@/components/ai-chat-pill";
 import SplitText from "@/blocks/TextAnimations/SplitText/SplitText";
 import GradualBlurMemo from "@/blocks/Animations/GradualBlur/GradualBlur";
 import AnimatedContent from "@/blocks/Animations/AnimatedContent/AnimatedContent";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const fraunces = Fraunces({
   weight: ["400", "100", "200", "300", "500", "600", "700", "800", "900"],
@@ -46,14 +47,14 @@ const colors = {
   primary: "#FF5825",
   secondary: "#00B173",
   accent: "#f5a623",
-  background_light: "#ffffff",
-  background_dark: "#262626",
-  foreground: "#EDEDED",
+  background_light: "var(--portfolio-card)",
+  background_dark: "var(--portfolio-canvas)",
+  foreground: "var(--portfolio-text)",
   text_link: "#2652FF",
-  text: "#0F0F0F",
-  text_gray: "#666666",
-  text_gray_light: "#999999",
-  text_lightest: "#fafafa",
+  text: "var(--portfolio-text)",
+  text_gray: "var(--portfolio-text-gray)",
+  text_gray_light: "var(--portfolio-text-gray-light)",
+  text_lightest: "var(--portfolio-text-lightest)",
 };
 
 const skills = [
@@ -1263,6 +1264,21 @@ export default function Home() {
                     </Text>
                   </Button>
                 </AnimatedContent>
+                
+                <AnimatedContent
+                  distance={200}
+                  direction="horizontal"
+                  reverse={false}
+                  duration={1.2}
+                  ease="bounce.out"
+                  initialOpacity={0}
+                  animateOpacity
+                  scale={1}
+                  threshold={0.2}
+                  delay={0.6}
+                >
+                  <ThemeToggle />
+                </AnimatedContent>
               </Flex>
             </Row>
             {/* Hero */}
@@ -1960,7 +1976,6 @@ export default function Home() {
           style={{
             backgroundColor: colors.background_light,
             minHeight: "fit-content",
-            marginTop: "16px"
           }}
           id="socials"
         >
