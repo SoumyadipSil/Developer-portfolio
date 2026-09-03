@@ -148,7 +148,7 @@
 }
 
 [data-theme="dark"] {
-  --portfolio-canvas: #0a0a0a;
+  --portfolio-canvas: #ffffff;
   --portfolio-card: #151515;
   --portfolio-text: #EDEDED;
   --portfolio-text-gray: #a1a1aa;
@@ -425,13 +425,13 @@
   align-items: center;
   gap: 24px;
   padding: 20px 24px;
-  background: #fff;
+  background: var(--portfolio-card);
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .project-list-item:hover {
-  background: #f9f9f9;
+  background: var(--portfolio-canvas);
 }
 
 .project-list-image-wrapper {
@@ -440,7 +440,7 @@
   height: 80px;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 .project-list-image {
@@ -465,7 +465,7 @@
 }
 
 .project-list-item:hover .project-list-arrow {
-  background: #f0f0f0;
+  background: var(--portfolio-canvas);
 }
 
 /* ===== PROJECT MODAL ===== */

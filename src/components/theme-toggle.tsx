@@ -57,14 +57,20 @@ export function ThemeToggle() {
         padding: "10px",
         minWidth: "44px",
         height: "44px",
-        background: "rgba(255, 255, 255, 0.05)",
+        background: "linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01))",
+        backdropFilter: "blur(24px) saturate(150%)",
+        WebkitBackdropFilter: "blur(24px) saturate(150%)",
         border: "1px solid rgba(255, 255, 255, 0.1)",
+        borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+        borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
+        boxShadow: "0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+        borderRadius: "12px",
       }}
     >
       {theme === "light" ? (
-        <Moon size={20} color="var(--portfolio-text)" />
+        <Moon size={20} color="#666666" />
       ) : (
-        <Sun size={20} color="var(--portfolio-text)" />
+        <Sun size={20} color="#ffffff" />
       )}
     </Button>
   );

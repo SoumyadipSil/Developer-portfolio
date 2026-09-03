@@ -572,7 +572,7 @@ function MinimalCardDemo({ viewMode, onOpenModal }: { viewMode: string; onOpenMo
                 style={{
                   fontFamily: inter_tight.style.fontFamily,
                   fontSize: "0.9em",
-                  color: colors.text_gray,
+                  color: colors.text,
                   lineHeight: 1.5,
                 }}
               >
@@ -1012,7 +1012,7 @@ export default function Home() {
         padding="xs"
         style={{
           backgroundColor: colors.background_dark,
-          height: "100vh",
+          minHeight: "100vh",
         }}
         gap="4"
         direction="column"
@@ -1255,7 +1255,7 @@ export default function Home() {
                     <Text
                       style={{
                         fontFamily: inter_tight.style.fontFamily,
-                        color: colors.text_lightest,
+                        color: "#ffffff",
                         fontSize: "1.1em",
                       }}
                       variant="body-default-l"
