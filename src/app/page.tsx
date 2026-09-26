@@ -309,21 +309,21 @@ const skills = [
 
 const cards = [
   {
-    src: "/images/projects/slax.png",
-    alt: "Slax - MCP Connector SaaS",
-    title: "Slax",
-    description: "MCP connector SaaS for Notion Workspace. Connect your AI agents straight into Notion with scoped, permissioned read and write access — no custom integration code needed.",
-    tags: ["SaaS", "MCP", "Notion", "AI Agents"],
-    githubUrl: "",
-    siteUrl: "",
-    comingSoon: true,
+    src: "/images/projects/Voiceover.png",
+    alt: "Voiceover AI voiceover studio",
+    title: "Voiceover",
+    description: "AI voiceover studio for creators producing narration in English, Hindi, Bengali & 50+ more languages. Choose a voice, tune the delivery, preview the waveform, and export the result.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind"],
+    githubUrl: "https://github.com/SoumyadipSil/Voiceover",
+    siteUrl: "https://voiceover-beta.vercel.app/",
+    comingSoon: false,
   },
   {
     src: "/images/projects/afterhours.png",
     alt: "AfterHours - Personal Blog",
     title: "AfterHours",
     description: "A journal of nights, reflections & late-night thoughts. Personal blog with an integrated AI assistant, ambient music player, and a curated archive of writing.",
-    tags: ["Blog", "AI Assistant", "Next.js", "Vercel"],
+    tags: ["nextjs", "ts", "tailwind", "Notion"],
     githubUrl: "https://github.com/SoumyadipSil/Afterhours-blog",
     siteUrl: "https://afterhours-blog.vercel.app/",
     comingSoon: false,
@@ -333,7 +333,7 @@ const cards = [
     alt: "Autonomous Multitask Assistant Robot",
     title: "Autonomous Multitask Assistant Robot",
     description: "Final year project praised by the department. An ESP32-based robot capable of autonomous navigation, obstacle avoidance, and multitask operations with OLED display and speaker integration.",
-    tags: ["Arduino", "ESP32", "IoT", "Robotics"],
+    tags: ["C++", "arduino ide"],
     githubUrl: "https://github.com/SoumyadipSil/Autonomous-Multitask-Assistant-Robot",
     siteUrl: "",
     comingSoon: false,
@@ -343,19 +343,9 @@ const cards = [
     alt: "LetsInvoice",
     title: "LetsInvoice",
     description: "Professional GST-ready invoices in under 3 minutes. 7 stunning templates, clean PDF downloads for just ₹99. No account needed, ever. Supports INR & USD.",
-    tags: ["SaaS", "Next.js", "PDF", "Finance"],
+    tags: ["html", "css", "js"],
     githubUrl: "https://github.com/SoumyadipSil/LetsInvoice",
     siteUrl: "https://letsinvoice-seven.vercel.app/",
-    comingSoon: false,
-  },
-  {
-    src: "/images/projects/mcp-notion.png",
-    alt: "MCP with Notion",
-    title: "MCP with Notion",
-    description: "MCP connector for personal Notion Workspace. Bridges AI agents with Notion's API for seamless workspace management, page creation, and database queries.",
-    tags: ["MCP", "Notion", "TypeScript", "API"],
-    githubUrl: "https://github.com/SoumyadipSil/MCP-with-Notion",
-    siteUrl: "",
     comingSoon: false,
   },
   {
@@ -363,9 +353,9 @@ const cards = [
     alt: "Sil Builders",
     title: "Sil Builders",
     description: "Commercial website for a construction & renovation company. Premium design with service showcase, project gallery, quote request system, and WhatsApp integration.",
-    tags: ["Commercial", "Next.js", "Business", "Web"],
+    tags: ["Next.js", "TypeScript", "Tailwind"],
     githubUrl: "https://github.com/SoumyadipSil/Sil-Builders",
-    siteUrl: "",
+    siteUrl: "https://silbuilders.vercel.app/",
     comingSoon: false,
   },
 ];
@@ -475,12 +465,12 @@ function ProjectModal({ project, onClose }: { project: ProjectCardType; onClose:
               <ExternalLink size={16} />
               Live Site
             </a>
-          ) : (
+          ) : project.comingSoon ? (
             <span className="project-modal-link-btn project-modal-link-disabled">
               <ExternalLink size={16} style={{ opacity: 0.4 }} />
-              {project.comingSoon ? "Coming Soon" : "No Site"}
+              Coming Soon
             </span>
-          )}
+          ) : null}
         </div>
 
         {/* Project image */}

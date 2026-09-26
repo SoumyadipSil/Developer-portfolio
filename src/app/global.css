@@ -426,12 +426,14 @@
   gap: 24px;
   padding: 20px 24px;
   background: var(--portfolio-card);
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
 }
 
 .project-list-item:hover {
-  background: var(--portfolio-canvas);
+  transform: scale(1.02);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
 }
 
 .project-list-image-wrapper {
@@ -465,7 +467,7 @@
 }
 
 .project-list-item:hover .project-list-arrow {
-  background: var(--portfolio-canvas);
+  background: rgba(128, 128, 128, 0.1);
 }
 
 /* ===== PROJECT MODAL ===== */
