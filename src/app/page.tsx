@@ -319,6 +319,16 @@ const cards = [
     comingSoon: false,
   },
   {
+    src: "/images/projects/slax.png",
+    alt: "Slax - MCP Connector SaaS",
+    title: "Slax",
+    description: "MCP connector SaaS for Notion Workspace. Connect your AI agents straight into Notion with scoped, permissioned read and write access — no custom integration code needed.",
+    tags: ["Nodejs", "ts", "tailwind", "figma"],
+    githubUrl: "",
+    siteUrl: "",
+    comingSoon: true,
+  },
+  {
     src: "/images/projects/afterhours.png",
     alt: "AfterHours - Personal Blog",
     title: "AfterHours",
