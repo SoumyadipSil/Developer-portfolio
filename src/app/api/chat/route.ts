@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
         'X-Title': 'Soumyadip Portfolio',
       },
       body: JSON.stringify({
-        models: ['nvidia/nemotron-3.5-lightning:free', 'meta-llama/llama-3.1-8b-instruct:free'],
+        models: ['nvidia/nemotron-3.5-lightning:free', 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free'],
         messages: [
           { role: 'system', content: dynamicSystemPrompt },
           ...messages.slice(-10),
