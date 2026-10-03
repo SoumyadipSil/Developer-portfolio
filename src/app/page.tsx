@@ -305,6 +305,45 @@ const skills = [
     ),
     label: "Svelte",
   },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+        alt="Docker"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Docker"
+      />
+    ),
+    label: "Docker",
+  },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+        alt="Redis"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Redis"
+      />
+    ),
+    label: "Redis",
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/neon.svg"
+        alt="Neon"
+        width={17}
+        height={17}
+        style={{ borderRadius: "4px" }}
+        aria-label="Neon"
+      />
+    ),
+    label: "Neon",
+  },
 ];
 
 const cards = [
@@ -1893,6 +1932,24 @@ export default function Home() {
                   link="https://supabase.com/"
                 />
                 <StackCard
+                  logoSrc="https://svgl.app/library/neon.svg"
+                  name="Neon"
+                  description="Serverless Postgres"
+                  link="https://neon.tech/"
+                />
+                <StackCard
+                  logoSrc="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                  name="Docker"
+                  description="Containerization"
+                  link="https://www.docker.com/"
+                />
+                <StackCard
+                  logoSrc="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                  name="Redis"
+                  description="In-Memory Database"
+                  link="https://redis.io/"
+                />
+                <StackCard
                   logoSrc="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg"
                   name="Spring Boot"
                   description="Java Framework"
@@ -2373,7 +2430,7 @@ export default function Home() {
             siteUrl: c.siteUrl
           })),
           about: "I'm Soumyadip Sil, a developer building SaaS, robots, and AI integrations.",
-          skills: ["Next.js", "TypeScript", "AI Agents", "IoT", "Arduino"]
+          skills: ["Next.js", "TypeScript", "AI Agents", "IoT", "Arduino", "Docker", "Redis", "Neon"]
         }} 
       />
     </>

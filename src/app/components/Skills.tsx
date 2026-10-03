@@ -76,6 +76,8 @@ const images_row4 = [
   "https://skillicons.dev/icons?i=discord",
   "https://skillicons.dev/icons?i=gitlab",
   "https://skillicons.dev/icons?i=pnpm",
+  "https://skillicons.dev/icons?i=redis",
+  "https://skillicons.dev/icons?i=neon",
 ];
 
 const images_row5 = [
